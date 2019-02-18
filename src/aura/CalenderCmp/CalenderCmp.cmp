@@ -1,0 +1,21 @@
+<aura:component controller="CalenderClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >	
+    <ltng:require styles="{!join(',',
+                           $Resource.Calender  + '/fullcalendar-3.10.0/fullcalendar.css',
+                          $Resource.CalenderCSS + '/jquery-ui-themes-1.12.1/themes/cupertino/jquery-ui.css'
+                           )}"
+                  scripts="{!join(',',
+                           $Resource.Calender  + '/fullcalendar-3.10.0/lib/jquery.min.js',
+                           $Resource.Calender  + '/fullcalendar-3.10.0/lib/moment.min.js',
+                           $Resource.Calender  + '/fullcalendar-3.10.0/fullcalendar.js'
+                           )}"
+                  afterScriptsLoaded="{!c.afterScriptsLoaded}" />    
+    <aura:attribute name='Objectlist' type='Object[]'/>
+    <lightning:card title="Appointments">
+        <div class="calendar-container">
+        	<div id="calendar" />
+        </div>
+        <aura:set attribute="actions">
+            <lightning:button label="New Appointment" onclick="{!c.newAppointment}" />
+        </aura:set>
+    </lightning:card>
+</aura:component>
